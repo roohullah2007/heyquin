@@ -1,0 +1,65 @@
+@import url('https://use.typekit.net/oyx8myk.css');
+@import url('https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap');
+
+@font-face {
+    font-family: 'Geist Mono';
+    src: url('https://cdn.jsdelivr.net/npm/@fontsource/geist-mono@5.0.1/files/geist-mono-latin-400-normal.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        font-family: "instrument-sans-variable", sans-serif;
+    }
+}
+
+@layer components {
+    .nav-links {
+        font-family: 'Geist Mono', monospace;
+        font-size: 12px;
+        letter-spacing: 0.05em;
+    }
+
+    .hero-text {
+        font-family: "instrument-sans-variable", sans-serif;
+        font-size: 96px;
+        line-height: 101px;
+        font-weight: 500;
+        letter-spacing: -0.04em;
+        font-variation-settings: "wdth" 80;
+    }
+
+    .hero-subtext {
+        font-family: "instrument-sans-variable", sans-serif;
+        font-size: 20px;
+        line-height: 1.6;
+    }
+
+    .logo-bg {
+        background-color: transparent;
+        transition: background-color 0.3s ease;
+        border-radius: 8px;
+        padding: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .logo-container:hover .logo-bg {
+        background-color: #f4c542;
+    }
+
+    @media (max-width: 768px) {
+        .hero-text {
+            font-size: 48px;
+        }
+        .hero-subtext {
+            font-size: 18px;
+        }
+    }
+}

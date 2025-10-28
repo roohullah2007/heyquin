@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quin - Meet your dream assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Geist Mono';
+            src: url('https://cdn.jsdelivr.net/npm/@fontsource/geist-mono@5.0.1/files/geist-mono-latin-400-normal.woff2') format('woff2');
+            font-weight: 400;
+            font-style: normal;
+        }
+        
+        body {
+            font-family: 'Instrument Sans', sans-serif;
+        }
+        
+        .nav-links {
+            font-family: 'Geist Mono', monospace;
+            font-size: 12px;
+            letter-spacing: 0.05em;
+        }
+        
+        .hero-text {
+            font-family: 'Instrument Sans', sans-serif;
+            font-size: 96px;
+            line-height: 1.1;
+            font-weight: 500;
+        }
+        
+        .hero-subtext {
+            font-family: 'Instrument Sans', sans-serif;
+            font-size: 20px;
+            line-height: 1.6;
+        }
+        
+        .logo-bg {
+            background-color: transparent;
+            transition: background-color 0.3s ease;
+            border-radius: 8px;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-container:hover .logo-bg {
+            background-color: #f4c542;
+        }
+        
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        
+        .animate-marquee {
+            display: flex;
+            animation: marquee 30s linear infinite;
+        }
+        
+        .animate-marquee svg {
+            min-width: 100%;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-text {
+                font-size: 48px;
+            }
+            .hero-subtext {
+                font-size: 18px;
+            }
+        }
+
+        
+    </style>
+</head>
+<body class="bg-[#f5f1e8]">
+    <!-- Announcement Banner -->
+    <div class="bg-[#f4c542] py-4 px-6">
+        <div class="max-w-[1280px] mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <span class="font-semibold text-gray-900">New in Quin:</span>
+                <span class="text-gray-900">No more back-and-forth chaos. Introducing Quin's new meeting scheduler</span>
+            </div>
+            <a href="#" class="flex items-center gap-2 text-gray-900 font-semibold hover:opacity-80 transition">
+                <span>READ</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-[#f5f1e8] py-6 px-6 sticky top-0 z-50">
+        <div class="max-w-[1280px] mx-auto flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2 logo-container">
+                <div class="logo-bg">
+                    <svg width="40" height="40" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M30.8842 3.43403C31.5931 3.75299 32.4071 3.75299 33.116 3.43403C42.7532 -0.90199 52.125 -1.31099 58.1234 3.23599C65.1964 8.59769 65.7216 19.4426 60.5737 30.8838C60.2546 31.593 60.2546 32.4059 60.5738 33.1151C65.7222 44.5567 65.1972 55.4021 58.124 60.764C52.1255 65.3111 42.7532 64.9021 33.1157 60.5657C32.4068 60.2468 31.5928 60.2468 30.8839 60.5657C21.2465 64.9019 11.8745 65.311 5.87614 60.7639C-1.19704 55.402 -1.72218 44.5566 3.42624 33.1151C3.74538 32.4059 3.74539 31.593 3.42627 30.8838C-1.72159 19.4426 -1.19625 8.59768 5.87676 3.23599C11.8751 -1.31098 21.247 -0.901994 30.8842 3.43403ZM8.31216 39.4642C7.11693 37.7381 4.44212 37.912 3.83848 39.9229C1.6177 47.3209 2.41195 53.6363 6.71577 56.8989C10.1742 59.5205 15.3351 59.7434 21.1462 57.9868C23.0804 57.4022 23.3206 54.8654 21.7263 53.6241C18.8728 51.4023 16.1092 48.8533 13.5235 46.0063C11.5857 43.8727 9.84652 41.6801 8.31216 39.4642ZM60.1615 39.9229C59.5579 37.912 56.8831 37.7381 55.6879 39.4642C54.1535 41.6801 52.4144 43.8726 50.4766 46.0062C47.8909 48.8533 45.1272 51.4022 42.2737 53.6241C40.6794 54.8654 40.9196 57.4022 42.8538 57.9868C48.665 59.7434 53.826 59.5206 57.2845 56.8989C61.5883 53.6363 62.3824 47.3209 60.1615 39.9229ZM33.2384 7.36117C32.4746 6.90659 31.5255 6.90659 30.7617 7.36117C25.7584 10.339 20.6859 14.4642 16.0972 19.5168C13.8775 21.9608 11.912 24.4664 10.2162 26.9728C9.70626 27.7265 9.65754 28.7001 10.0939 29.4986C12.2886 33.5148 15.2122 37.6269 18.8005 41.578C22.5254 45.6793 26.5689 49.1695 30.6354 51.9311C31.46 52.491 32.5402 52.491 33.3647 51.9311C37.4313 49.1695 41.4749 45.6793 45.1997 41.578C48.7881 37.6269 51.7116 33.5149 53.9062 29.4988C54.3426 28.7002 54.2939 27.7266 53.7839 26.9729C52.0881 24.4665 50.1228 21.9608 47.9031 19.5168C43.3143 14.4642 38.2418 10.339 33.2384 7.36117ZM31.9966 23.3349C36.3627 23.3349 39.9021 25.863 39.9021 28.9814C39.9021 32.0998 36.3627 34.6278 31.9966 34.6278C27.6305 34.6278 24.0911 32.0998 24.0911 28.9814C24.0911 25.863 27.6305 23.3349 31.9966 23.3349ZM54.5811 4.19574C50.933 1.43035 45.3906 1.33384 39.189 3.4143C37.2173 4.07575 37.1055 6.72124 38.8315 7.88148C42.9007 10.6168 46.8628 14.014 50.4771 17.9937C51.4531 19.0683 52.3787 20.1579 53.2531 21.258C54.5182 22.8496 57.0709 22.5662 57.6219 20.6091C59.6364 13.4542 58.7754 7.37526 54.5811 4.19574ZM25.1685 7.88151C26.8945 6.72126 26.7827 4.07576 24.811 3.41431C18.6095 1.33391 13.0672 1.43041 9.41915 4.19574C5.22483 7.37524 4.36383 13.4542 6.37823 20.609C6.92922 22.5661 9.482 22.8495 10.7471 21.2579C11.6215 20.1579 12.5471 19.0683 13.523 17.9937C17.1373 14.0141 21.0994 10.6169 25.1685 7.88151Z" fill="#141414"/>
+                    </svg>
+                </div>
+                <span class="text-2xl font-semibold text-gray-900">Quin</span>
+            </a>
+
+            <!-- Navigation Links -->
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#" class="nav-links text-gray-700 hover:text-gray-900 transition font-medium">SKILLS</a>
+                <a href="#" class="nav-links text-gray-700 hover:text-gray-900 transition font-medium">INTEGRATIONS</a>
+                <a href="#" class="nav-links text-gray-700 hover:text-gray-900 transition font-medium">BLOG</a>
+                <div class="relative group">
+                    <button class="nav-links flex items-center gap-1 text-gray-700 hover:text-gray-900 transition font-medium">
+                        <span>SOLUTIONS</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                </div>
+                <a href="#" class="nav-links text-gray-700 hover:text-gray-900 transition font-medium">PRICING</a>
+                <a href="#" class="nav-links text-gray-700 hover:text-gray-900 transition font-medium">LOGIN</a>
+                <button class="bg-white text-gray-900 px-6 py-2.5 rounded-lg font-medium hover:bg-gray-50 transition border border-gray-200 shadow-sm">
+                    GET STARTED
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main class="max-w-[1280px] mx-auto px-6 pt-24 pb-32">
+        <div class="text-center">
+            <!-- Main Heading -->
+            <h1 class="hero-text text-gray-900 mb-8">
+                Meet your<br>
+                dream assistant
+            </h1>
+
+            <!-- Subheading -->
+            <p class="hero-subtext text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                Quin handles everything a great assistant would—follow-ups, scheduling, data entry, and task coordination—across your entire day, not just meetings.
+            </p>
+        </div>
+    </main>
+
+    <!-- Features Tabs Section -->
+    <section class="bg-[#f5f1e8] py-16">
+        <div class="max-w-[1280px] mx-auto">
+            <!-- Tabs Navigation -->
+            <div class="flex items-center gap-0 overflow-hidden">
+                <button class="bg-[#f4c542] text-gray-900 px-6 w-[183px] py-5 font-medium whitespace-nowrap transition hover:bg-[#f4c542]/90 border-r border-gray-200/50">
+                    Meeting prep
+                </button>
+                <button class="bg-white text-gray-700 font-medium px-6 w-[183px] py-5 whitespace-nowrap transition hover:bg-gray-50 border-r border-gray-200/50">
+                    Note-taking
+                </button>
+                <button class="bg-white text-gray-700 font-medium px-6 w-[183px] py-5 whitespace-nowrap transition hover:bg-gray-50 border-r border-gray-200/50">
+                    Follow-ups
+                </button>
+                <button class="bg-white text-gray-700 font-medium px-6 w-[183px] py-5 whitespace-nowrap transition hover:bg-gray-50 border-r border-gray-200/50">
+                    Data entry
+                </button>
+                <button class="bg-white text-gray-700 font-medium px-6 w-[183px] py-5 whitespace-nowrap transition hover:bg-gray-50 border-r border-gray-200/50">
+                    Scheduling
+                </button>
+                <button class="bg-white text-gray-700 font-medium px-6 w-[183px] py-5 whitespace-nowrap transition hover:bg-gray-50 border-r border-gray-200/50">
+                    Search
+                </button>
+                <button class="bg-white text-gray-700 font-medium px-6 w-[183px] py-5 whitespace-nowrap transition hover:bg-gray-50">
+                    And more...
+                </button>
+            </div>
+
+            <!-- Content Area with Phone Mockup -->
+            <div class="relative flex items-center justify-center" style="min-height: 718px;">
+                <!-- Background Image/Pattern (wood texture) -->
+                <div class="absolute inset-0 bg-gradient-to-b from-[#d4a574] to-[#c49563] overflow-hidden">
+                    <!-- Wood grain texture simulation -->
+                    <div class="absolute inset-0 opacity-20" style="background-image: repeating-linear-gradient(90deg, rgba(0,0,0,0.1) 0px, transparent 1px, transparent 2px, rgba(0,0,0,0.1) 3px); background-size: 4px 100%;"></div>
+                </div>
+
+                <!-- Phone Mockup -->
+                <div class="relative z-10 w-full h-full flex items-center justify-center">
+                    <div class="relative" style="width: 1280px; height: 718px;">
+                        <img src="mobile.jpg" alt="Phone mockup" style="width: 1280px; height: 718px; object-fit: cover;" />
+                        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center w-full px-4">
+                            <div class="bg-white rounded-3xl shadow-2xl p-8 max-w-sm mx-auto">
+                                <h3 class="text-xl font-semibold mb-4">Follow-up with Sophie</h3>
+                                <div class="text-left space-y-4">
+                                    <p class="text-sm text-gray-600">No problem, I've drafted a follow-up to <strong>Sophie Rodriguez</strong>:</p>
+                                    <div class="bg-gray-50 rounded-lg p-4 space-y-2">
+                                        <div class="flex items-center gap-2 text-sm font-medium">
+                                            <svg class="w-4 h-4 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+                                                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                                                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                                            </svg>
+                                            <span>Subject: Following-up</span>
+                                        </div>
+                                        <p class="text-xs text-gray-600">Hi Sophie,</p>
+                                        <p class="text-xs text-gray-600">Hope you've been well! Just circling back on our conversation from a few weeks ago—last time we spoke, you mentioned wanting to <strong>streamline onboarding and reduce manual workflows</strong> before the end of Q3.</p>
+                                        <p class="text-xs text-gray-600">I know things can get busy, so no rush if timing's shifted. Just wanted to see if it still makes sense to reconnect and pick things back up. Happy to send over a tailored walkthrough or answer any...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Decorative Color Blocks (bottom left) -->
+                <div class="absolute bottom-8 left-8 flex gap-2 z-20">
+                    <div class="w-8 h-8 bg-[#3d2817] rounded"></div>
+                    <div class="w-8 h-8 bg-[#f4c542] rounded"></div>
+                    <div class="w-8 h-8 bg-[#87ceeb] rounded"></div>
+                </div>
+            </div>
+
+            <!-- Animated Bars SVG and CTA Buttons Section -->
+            <div class="relative flex bg-[#f5f1e8] pb-8">
+
+                <!-- Animated Bars SVG -->
+                <div class="overflow-hidden h-[64px]" style="will-change: transform;">
+                    <div class="inline-flex animate-marquee-slow" style="transform-style: preserve-3d;">
+                        <div class="flex-shrink-0">
+                            <svg width="2198" height="180" viewBox="0 0 2198 180" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-gray-300">
+                                <path d="M1 0V180M14.8987 0V180M28.7975 0V180M42.6962 0V180M56.5949 0V180M70.4937 0V180M84.3924 0V180M98.2911 0V180M112.19 0V180M126.089 0V180M139.987 0V180M153.886 0V180M167.785 0V180M181.684 0V180M195.582 0V180M209.481 0V180M223.38 0V180M237.278 0V180M251.177 0V180M265.076 0V180M278.975 0V180M292.873 0V180M306.772 0V180M320.671 0V180M334.57 0V180M348.468 0V180M362.367 0V180M376.266 0V180M390.165 0V180M404.063 0V180M417.962 0V180M431.861 0V180M445.759 0V180M459.658 0V180M473.557 0V180M487.456 0V180M501.354 0V180M515.253 0V180M529.152 0V180M543.051 0V180M556.949 0V180M570.848 0V180M584.747 0V180M598.646 0V180M612.544 0V180M626.443 0V180M640.342 0V180M654.241 0V180M668.139 0V180M682.038 0V180M695.937 0V180M709.835 0V180M723.734 0V180M737.633 0V180M751.532 0V180M765.43 0V180M779.329 0V180M793.228 0V180M807.127 0V180M821.025 0V180M834.924 0V180M848.823 0V180M862.722 0V180M876.62 0V180M890.519 0V180M904.418 0V180M918.316 0V180M932.215 0V180M946.114 0V180M960.013 0V180M973.911 0V180M987.81 0V180M1001.71 0V180M1015.61 0V180M1029.51 0V180M1043.41 0V180M1057.3 0V180M1071.2 0V180M1085.1 0V180M1099 0V180M1112.9 0V180M1126.8 0V180M1140.7 0V180M1154.59 0V180M1168.49 0V180M1182.39 0V180M1196.29 0V180M1210.19 0V180M1224.09 0V180M1237.99 0V180M1251.89 0V180M1265.78 0V180M1279.68 0V180M1293.58 0V180M1307.48 0V180M1321.38 0V180M1335.28 0V180M1349.18 0V180M1363.08 0V180M1376.97 0V180M1390.87 0V180M1404.77 0V180M1418.67 0V180M1432.57 0V180M1446.47 0V180M1460.37 0V180M1474.27 0V180M1488.16 0V180M1502.06 0V180M1515.96 0V180M1529.86 0V180M1543.76 0V180M1557.66 0V180M1571.56 0V180M1585.46 0V180M1599.35 0V180M1613.25 0V180M1627.15 0V180M1641.05 0V180M1654.95 0V180M1668.85 0V180M1682.75 0V180M1696.65 0V180M1710.54 0V180M1724.44 0V180M1738.34 0V180M1752.24 0V180M1766.14 0V180M1780.04 0V180M1793.94 0V180M1807.84 0V180M1821.73 0V180M1835.63 0V180M1849.53 0V180M1863.43 0V180M1877.33 0V180M1891.23 0V180M1905.13 0V180M1919.03 0V180M1932.92 0V180M1946.82 0V180M1960.72 0V180M1974.62 0V180M1988.52 0V180M2002.42 0V180M2016.32 0V180M2030.22 0V180M2044.11 0V180M2058.01 0V180M2071.91 0V180M2085.81 0V180M2099.71 0V180M2113.61 0V180M2127.51 0V180M2141.41 0V180M2155.3 0V180M2169.2 0V180M2183.1 0V180M2197 0V180" stroke="currentColor" stroke-width="1"/>
+                            </svg>
+                        </div>
+                        <div class="flex-shrink-0">
+                            <svg width="2198" height="180" viewBox="0 0 2198 180" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-gray-300">
+                                <path d="M1 0V180M14.8987 0V180M28.7975 0V180M42.6962 0V180M56.5949 0V180M70.4937 0V180M84.3924 0V180M98.2911 0V180M112.19 0V180M126.089 0V180M139.987 0V180M153.886 0V180M167.785 0V180M181.684 0V180M195.582 0V180M209.481 0V180M223.38 0V180M237.278 0V180M251.177 0V180M265.076 0V180M278.975 0V180M292.873 0V180M306.772 0V180M320.671 0V180M334.57 0V180M348.468 0V180M362.367 0V180M376.266 0V180M390.165 0V180M404.063 0V180M417.962 0V180M431.861 0V180M445.759 0V180M459.658 0V180M473.557 0V180M487.456 0V180M501.354 0V180M515.253 0V180M529.152 0V180M543.051 0V180M556.949 0V180M570.848 0V180M584.747 0V180M598.646 0V180M612.544 0V180M626.443 0V180M640.342 0V180M654.241 0V180M668.139 0V180M682.038 0V180M695.937 0V180M709.835 0V180M723.734 0V180M737.633 0V180M751.532 0V180M765.43 0V180M779.329 0V180M793.228 0V180M807.127 0V180M821.025 0V180M834.924 0V180M848.823 0V180M862.722 0V180M876.62 0V180M890.519 0V180M904.418 0V180M918.316 0V180M932.215 0V180M946.114 0V180M960.013 0V180M973.911 0V180M987.81 0V180M1001.71 0V180M1015.61 0V180M1029.51 0V180M1043.41 0V180M1057.3 0V180M1071.2 0V180M1085.1 0V180M1099 0V180M1112.9 0V180M1126.8 0V180M1140.7 0V180M1154.59 0V180M1168.49 0V180M1182.39 0V180M1196.29 0V180M1210.19 0V180M1224.09 0V180M1237.99 0V180M1251.89 0V180M1265.78 0V180M1279.68 0V180M1293.58 0V180M1307.48 0V180M1321.38 0V180M1335.28 0V180M1349.18 0V180M1363.08 0V180M1376.97 0V180M1390.87 0V180M1404.77 0V180M1418.67 0V180M1432.57 0V180M1446.47 0V180M1460.37 0V180M1474.27 0V180M1488.16 0V180M1502.06 0V180M1515.96 0V180M1529.86 0V180M1543.76 0V180M1557.66 0V180M1571.56 0V180M1585.46 0V180M1599.35 0V180M1613.25 0V180M1627.15 0V180M1641.05 0V180M1654.95 0V180M1668.85 0V180M1682.75 0V180M1696.65 0V180M1710.54 0V180M1724.44 0V180M1738.34 0V180M1752.24 0V180M1766.14 0V180M1780.04 0V180M1793.94 0V180M1807.84 0V180M1821.73 0V180M1835.63 0V180M1849.53 0V180M1863.43 0V180M1877.33 0V180M1891.23 0V180M1905.13 0V180M1919.03 0V180M1932.92 0V180M1946.82 0V180M1960.72 0V180M1974.62 0V180M1988.52 0V180M2002.42 0V180M2016.32 0V180M2030.22 0V180M2044.11 0V180M2058.01 0V180M2071.91 0V180M2085.81 0V180M2099.71 0V180M2113.61 0V180M2127.51 0V180M2141.41 0V180M2155.3 0V180M2169.2 0V180M2183.1 0V180M2197 0V180" stroke="currentColor" stroke-width="1"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Buttons -->
+                <div class="flex items-center justify-center gap-0">
+                    <button class="bg-[#f4c542] text-gray-900 font-semibold hover:bg-[#f4c542]/90 transition flex items-center justify-center gap-2" style="width: 148px; height: 64px;">
+                        <span class="text-sm uppercase tracking-wide">GET DEMO</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                    <button class="bg-[#87ceeb] text-gray-900 font-semibold hover:bg-[#87ceeb]/90 transition flex items-center justify-center gap-2" style="width: 196px; height: 64px;">
+                        <span class="text-sm uppercase tracking-wide">TRY QUIN FREE</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Skills Section -->
+<section class="bg-[#f5f1e8]">
+    <div class="max-w-[1280px] mx-auto">
+        <!-- Skills Badge -->
+        <div class="mb-8">
+            <span class="bg-[#f4c542] text-gray-900 font-medium px-4 py-2 inline-block" style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.05em;">
+                SKILLS
+            </span>
+        </div>
+
+        <!-- Heading -->
+        <h2 class="text-gray-900 mb-6" style="font-family: 'Instrument Sans', sans-serif; font-size: 56px; line-height: 1.2; font-weight: 500;">
+            Say goodbye to<br>
+            busywork, forever
+        </h2>
+
+        <!-- Description -->
+        <p class="text-gray-700 mb-16 max-w-2xl" style="font-family: 'Instrument Sans', sans-serif; font-size: 16px; line-height: 1.6;">
+            Quin learns your preferences and handles tasks the way you would,<br>
+            keeping everything organized without the extra effort.
+        </p>
+
+        <!-- Skills Grid with Image -->
+        <div class="grid grid-cols-5 gap-0">
+            <!-- Row 1: 5 Cards -->
+            <!-- Skill Card 1 -->
+            <a href="#" class="bg-[#f5f1e8] hover:bg-[#e5e1d8] transition flex flex-col items-start justify-between p-6 group border border-gray-300" style="width: 255px; height: 255px;">
+                <div class="text-4xl mb-auto">
+                    <svg class="w-12 h-12 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                    </svg>
+                </div>
+                <h6 class="text-gray-900 font-medium text-base leading-snug">Allow Quin to join your meetings</h6>
+            </a>
+
+            <!-- Skill Card 2 -->
+            <a href="#" class="bg-[#f5f1e8] hover:bg-[#e5e1d8] transition flex flex-col items-start justify-between p-6 group border border-gray-300" style="width: 255px; height: 255px;">
+                <div class="text-4xl mb-auto">
+                    <svg class="w-12 h-12 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                        <circle cx="18" cy="18" r="3" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+                    </svg>
+                </div>
+                <h6 class="text-gray-900 font-medium text-base leading-snug">Identify and create opportunities from notes + transcripts</h6>
+            </a>
+
+            <!-- Skill Card 3 -->
+            <a href="#" class="bg-[#f5f1e8] hover:bg-[#e5e1d8] transition flex flex-col items-start justify-between p-6 group border border-gray-300" style="width: 255px; height: 255px;">
+                <div class="text-4xl mb-auto">
+                    <svg class="w-12 h-12 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                    </svg>
+                </div>
+                <h6 class="text-gray-900 font-medium text-base leading-snug">Add notes to contacts and households</h6>
+            </a>
+
+            <!-- Skill Card 4 -->
+            <a href="#" class="bg-[#f5f1e8] hover:bg-[#e5e1d8] transition flex flex-col items-start justify-between p-6 group border border-gray-300" style="width: 255px; height: 255px;">
+                <div class="text-4xl mb-auto">
+                    <svg class="w-12 h-12 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                    </svg>
+                </div>
+                <h6 class="text-gray-900 font-medium text-base leading-snug">Create and assign tasks from meeting notes</h6>
+            </a>
+
+            <!-- Skill Card 5 -->
+            <a href="#" class="bg-[#f5f1e8] hover:bg-[#e5e1d8] transition flex flex-col items-start justify-between p-6 group border border-gray-300" style="width: 255px; height: 255px;">
+                <div class="text-4xl mb-auto">
+                    <svg class="w-12 h-12 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                    </svg>
+                </div>
+                <h6 class="text-gray-900 font-medium text-base leading-snug">Create new contact records in CRM</h6>
+            </a>
+
+            <!-- Row 2 & 3: Image spanning 2 columns and 2 rows + 3 cards on each row -->
+            <!-- Large Image Area (spans 2 columns, 2 rows) -->
+            <div class="col-span-2 row-span-2 relative overflow-hidden border w-[512px] h-[519px] border-gray-300" >
+                <img src="side image.jpg" alt="Quin interface" class="w-full h-full object-cover" />
+                <!-- Decorative Color Blocks -->
+                <div class="absolute bottom-4 left-4 flex gap-0">
+                    <div class="w-12 h-12 bg-[#8b7355]"></div>
+                    <div class="w-12 h-12 bg-[#f4c542]"></div>
+                    <div class="w-12 h-12 bg-[#87ceeb]"></div>
+                </div>
+            </div>
+
+            <!-- Skill Card 6 -->
+            <a href="#" class="bg-[#f5f1e8] hover:bg-[#e5e1d8] transition flex flex-col items-start justify-between p-6 group border border-gray-300" style="width: 255px; height: 255px;">
+                <div class="text-4xl mb-auto">
+                    <svg class="w-12 h-12 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                    </svg>
+                </div>
+                <h6 class="text-gray-900 font-medium text-base leading-snug">Create new deal from product lines</h6>
+            </a>
+
+            <!-- Skill Card 7 -->
+            <a href="#" class="bg-[#f5f1e8] hover:bg-[#e5e1d8] transition flex flex-col items-start justify-between p-6 group border border-gray-300" style="width: 255px; height: 255px;">
+                <div class="text-4xl mb-auto">
+                    <svg class="w-12 h-12 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                    </svg>
+                </div>
+                <h6 class="text-gray-900 font-medium text-base leading-snug">Search LinkedIn</h6>
+            </a>
+
+            <!-- Skill Card 8 -->
+            <a href="#" class="bg-[#f5f1e8] hover:bg-[#e5e1d8] transition flex flex-col items-start justify-between p-6 group border border-gray-300" style="width: 255px; height: 255px;">
+                <div class="text-4xl mb-auto">
+                    <svg class="w-12 h-12 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
+                    </svg>
+                </div>
+                <h6 class="text-gray-900 font-medium text-base leading-snug">Set task and calendar reminders</h6>
+            </a>
+
+            <!-- Skill Card 9 -->
+            <a href="#" class="bg-[#f5f1e8] hover:bg-[#e5e1d8] transition flex flex-col items-start justify-between p-6 group border border-gray-300" style="width: 255px; height: 255px;">
+                <div class="text-4xl mb-auto">
+                    <svg class="w-12 h-12 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                    </svg>
+                </div>
+                <h6 class="text-gray-900 font-medium text-base leading-snug">Draft follow-up emails</h6>
+            </a>
+
+            <!-- Skill Card 10 -->
+            <a href="#" class="bg-[#f5f1e8] hover:bg-[#e5e1d8] transition flex flex-col items-start justify-between p-6 group border border-gray-300" style="width: 255px; height: 255px;">
+                <div class="text-4xl mb-auto">
+                    <svg class="w-12 h-12 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
+                    </svg>
+                </div>
+                <h6 class="text-gray-900 font-medium text-base leading-snug">Learn your voice and tone from sent emails</h6>
+            </a>
+
+            <!-- Skill Card 11 -->
+            <a href="#" class="bg-[#f5f1e8] hover:bg-[#e5e1d8] transition flex flex-col items-start justify-between p-6 group border border-gray-300" style="width: 255px; height: 255px;">
+                <div class="text-4xl mb-auto">
+                    <svg class="w-12 h-12 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                    </svg>
+                </div>
+                <h6 class="text-gray-900 font-medium text-base leading-snug">Update any field in existing contact records</h6>
+            </a>
+
+            <!-- Row 4: 3 Cards + CTA Section spanning 2 columns -->
+            <!-- Skill Card 12 -->
+            <a href="#" class="bg-[#f5f1e8] hover:bg-[#e5e1d8] transition flex flex-col items-start justify-between p-6 group border border-gray-300" style="width: 255px; height: 255px;">
+                <div class="text-4xl mb-auto">
+                    <svg class="w-12 h-12 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                    </svg>
+                </div>
+                <h6 class="text-gray-900 font-medium text-base leading-snug">Add context and background information to calendar events</h6>
+            </a>
+
+            <!-- Skill Card 13 -->
+            <a href="#" class="bg-[#f5f1e8] hover:bg-[#e5e1d8] transition flex flex-col items-start justify-between p-6 group border border-gray-300" style="width: 255px; height: 255px;">
+                <div class="text-4xl mb-auto">
+                    <svg class="w-12 h-12 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                    </svg>
+                </div>
+                <h6 class="text-gray-900 font-medium text-base leading-snug">Update meeting events with follow-up details</h6>
+            </a>
+
+            <!-- Skill Card 14 -->
+            <a href="#" class="bg-[#f5f1e8] hover:bg-[#e5e1d8] transition flex flex-col items-start justify-between p-6 group border border-gray-300" style="width: 255px; height: 255px;">
+                <div class="text-4xl mb-auto">
+                    <svg class="w-12 h-12 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/>
+                    </svg>
+                </div>
+                <h6 class="text-gray-900 font-medium text-base leading-snug">Generate documents</h6>
+            </a>
+
+            <!-- CTA Section (spans 2 columns) -->
+            <div class="col-span-2 bg-[#f5f1e8] hover:bg-[#e5e1d8] transition flex flex-col items-start justify-between p-8 border border-gray-300" style="width: 522px; height: 255px;">
+                <h3 class="text-gray-900 mb-6" style="font-family: 'Instrument Sans', sans-serif; font-size: 28px; line-height: 1.3; font-weight: 500;">
+                    70+ intelligent skills to eliminate your admin work
+                </h3>
+                <a href="#" class="bg-[#f4c542] text-gray-900 w-full justify-center font-medium px-6 py-3 hover:bg-[#f4c542]/90 transition inline-flex items-center gap-2" style="font-family: 'Geist Mono', monospace; font-size: 14px; letter-spacing: 0.05em;">
+                    <span>EXPLORE SKILLS</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <!-- Animated Bars SVG -->
+        <div class="overflow-hidden" style="will-change: transform;">
+            <div class="inline-flex animate-marquee-slow" style="transform-style: preserve-3d;">
+                <div class="flex-shrink-0">
+                    <svg width="2198" height="180" viewBox="0 0 2198 180" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-gray-300">
+                        <path d="M1 0V180M14.8987 0V180M28.7975 0V180M42.6962 0V180M56.5949 0V180M70.4937 0V180M84.3924 0V180M98.2911 0V180M112.19 0V180M126.089 0V180M139.987 0V180M153.886 0V180M167.785 0V180M181.684 0V180M195.582 0V180M209.481 0V180M223.38 0V180M237.278 0V180M251.177 0V180M265.076 0V180M278.975 0V180M292.873 0V180M306.772 0V180M320.671 0V180M334.57 0V180M348.468 0V180M362.367 0V180M376.266 0V180M390.165 0V180M404.063 0V180M417.962 0V180M431.861 0V180M445.759 0V180M459.658 0V180M473.557 0V180M487.456 0V180M501.354 0V180M515.253 0V180M529.152 0V180M543.051 0V180M556.949 0V180M570.848 0V180M584.747 0V180M598.646 0V180M612.544 0V180M626.443 0V180M640.342 0V180M654.241 0V180M668.139 0V180M682.038 0V180M695.937 0V180M709.835 0V180M723.734 0V180M737.633 0V180M751.532 0V180M765.43 0V180M779.329 0V180M793.228 0V180M807.127 0V180M821.025 0V180M834.924 0V180M848.823 0V180M862.722 0V180M876.62 0V180M890.519 0V180M904.418 0V180M918.316 0V180M932.215 0V180M946.114 0V180M960.013 0V180M973.911 0V180M987.81 0V180M1001.71 0V180M1015.61 0V180M1029.51 0V180M1043.41 0V180M1057.3 0V180M1071.2 0V180M1085.1 0V180M1099 0V180M1112.9 0V180M1126.8 0V180M1140.7 0V180M1154.59 0V180M1168.49 0V180M1182.39 0V180M1196.29 0V180M1210.19 0V180M1224.09 0V180M1237.99 0V180M1251.89 0V180M1265.78 0V180M1279.68 0V180M1293.58 0V180M1307.48 0V180M1321.38 0V180M1335.28 0V180M1349.18 0V180M1363.08 0V180M1376.97 0V180M1390.87 0V180M1404.77 0V180M1418.67 0V180M1432.57 0V180M1446.47 0V180M1460.37 0V180M1474.27 0V180M1488.16 0V180M1502.06 0V180M1515.96 0V180M1529.86 0V180M1543.76 0V180M1557.66 0V180M1571.56 0V180M1585.46 0V180M1599.35 0V180M1613.25 0V180M1627.15 0V180M1641.05 0V180M1654.95 0V180M1668.85 0V180M1682.75 0V180M1696.65 0V180M1710.54 0V180M1724.44 0V180M1738.34 0V180M1752.24 0V180M1766.14 0V180M1780.04 0V180M1793.94 0V180M1807.84 0V180M1821.73 0V180M1835.63 0V180M1849.53 0V180M1863.43 0V180M1877.33 0V180M1891.23 0V180M1905.13 0V180M1919.03 0V180M1932.92 0V180M1946.82 0V180M1960.72 0V180M1974.62 0V180M1988.52 0V180M2002.42 0V180M2016.32 0V180M2030.22 0V180M2044.11 0V180M2058.01 0V180M2071.91 0V180M2085.81 0V180M2099.71 0V180M2113.61 0V180M2127.51 0V180M2141.41 0V180M2155.3 0V180M2169.2 0V180M2183.1 0V180M2197 0V180" stroke="currentColor" stroke-width="1"/>
+                    </svg>
+                </div>
+                <div class="flex-shrink-0">
+                    <svg width="2198" height="180" viewBox="0 0 2198 180" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-gray-300">
+                        <path d="M1 0V180M14.8987 0V180M28.7975 0V180M42.6962 0V180M56.5949 0V180M70.4937 0V180M84.3924 0V180M98.2911 0V180M112.19 0V180M126.089 0V180M139.987 0V180M153.886 0V180M167.785 0V180M181.684 0V180M195.582 0V180M209.481 0V180M223.38 0V180M237.278 0V180M251.177 0V180M265.076 0V180M278.975 0V180M292.873 0V180M306.772 0V180M320.671 0V180M334.57 0V180M348.468 0V180M362.367 0V180M376.266 0V180M390.165 0V180M404.063 0V180M417.962 0V180M431.861 0V180M445.759 0V180M459.658 0V180M473.557 0V180M487.456 0V180M501.354 0V180M515.253 0V180M529.152 0V180M543.051 0V180M556.949 0V180M570.848 0V180M584.747 0V180M598.646 0V180M612.544 0V180M626.443 0V180M640.342 0V180M654.241 0V180M668.139 0V180M682.038 0V180M695.937 0V180M709.835 0V180M723.734 0V180M737.633 0V180M751.532 0V180M765.43 0V180M779.329 0V180M793.228 0V180M807.127 0V180M821.025 0V180M834.924 0V180M848.823 0V180M862.722 0V180M876.62 0V180M890.519 0V180M904.418 0V180M918.316 0V180M932.215 0V180M946.114 0V180M960.013 0V180M973.911 0V180M987.81 0V180M1001.71 0V180M1015.61 0V180M1029.51 0V180M1043.41 0V180M1057.3 0V180M1071.2 0V180M1085.1 0V180M1099 0V180M1112.9 0V180M1126.8 0V180M1140.7 0V180M1154.59 0V180M1168.49 0V180M1182.39 0V180M1196.29 0V180M1210.19 0V180M1224.09 0V180M1237.99 0V180M1251.89 0V180M1265.78 0V180M1279.68 0V180M1293.58 0V180M1307.48 0V180M1321.38 0V180M1335.28 0V180M1349.18 0V180M1363.08 0V180M1376.97 0V180M1390.87 0V180M1404.77 0V180M1418.67 0V180M1432.57 0V180M1446.47 0V180M1460.37 0V180M1474.27 0V180M1488.16 0V180M1502.06 0V180M1515.96 0V180M1529.86 0V180M1543.76 0V180M1557.66 0V180M1571.56 0V180M1585.46 0V180M1599.35 0V180M1613.25 0V180M1627.15 0V180M1641.05 0V180M1654.95 0V180M1668.85 0V180M1682.75 0V180M1696.65 0V180M1710.54 0V180M1724.44 0V180M1738.34 0V180M1752.24 0V180M1766.14 0V180M1780.04 0V180M1793.94 0V180M1807.84 0V180M1821.73 0V180M1835.63 0V180M1849.53 0V180M1863.43 0V180M1877.33 0V180M1891.23 0V180M1905.13 0V180M1919.03 0V180M1932.92 0V180M1946.82 0V180M1960.72 0V180M1974.62 0V180M1988.52 0V180M2002.42 0V180M2016.32 0V180M2030.22 0V180M2044.11 0V180M2058.01 0V180M2071.91 0V180M2085.81 0V180M2099.71 0V180M2113.61 0V180M2127.51 0V180M2141.41 0V180M2155.3 0V180M2169.2 0V180M2183.1 0V180M2197 0V180" stroke="currentColor" stroke-width="1"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Integrations Section -->
+<section class="bg-[#F0ECDF] border-t border-2 border-gray-400 h-[296px]">
+    <div class="max-w-[1280px] mx-auto px-6 h-full flex flex-col justify-center">
+        <!-- Heading -->
+        <h4 class="text-center text-gray-900 mb-12 text-[28px] leading-[1.3] font-medium" style="font-family: 'Instrument Sans', sans-serif;">
+            Get started with the tools you're already using
+        </h4>
+
+        <!-- Scrolling Logos -->
+        <div class="overflow-hidden mb-12 border-t border-b border-gray-300">
+            <div class="flex animate-marquee-logos">
+                <!-- Logo 1 - Pipedrive -->
+                <div class="flex items-center justify-center bg-white border-r border-gray-300 w-[96px] h-[96px] min-w-[96px]">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pipedrive/pipedrive-original.svg" alt="Pipedrive" class="w-[40px] h-[40px]" />
+                </div>
+
+                <!-- Logo 2 - Salesforce -->
+                <div class="flex items-center justify-center bg-white border-r border-gray-300 w-[96px] h-[96px] min-w-[96px]">
+                    <svg class="w-[40px] h-[40px]" viewBox="0 0 24 24" fill="#00A1E0">
+                        <path d="M10.006 5.413a4.795 4.795 0 0 1 4.788-4.56 4.794 4.794 0 0 1 4.56 3.254 3.843 3.843 0 0 1 2.283-.753 3.878 3.878 0 0 1 3.877 3.877 3.843 3.843 0 0 1-.753 2.283 4.793 4.793 0 0 1 3.253 4.559 4.795 4.795 0 0 1-4.559 4.788 4.795 4.795 0 0 1-3.254-1.207 3.843 3.843 0 0 1-2.283.753 3.878 3.878 0 0 1-3.877-3.877c0-.844.269-1.614.753-2.283a4.793 4.793 0 0 1-3.254-4.559c0-1.279.506-2.461 1.466-3.329z"/>
+                    </svg>
+                </div>
+
+                <!-- Logo 3 - Asana -->
+                <div class="flex items-center justify-center bg-white border-r border-gray-300 w-[96px] h-[96px] min-w-[96px]">
+                    <svg class="w-[40px] h-[40px]" viewBox="0 0 24 24" fill="#F06A6A">
+                        <path d="M18.78 12.653c-2.882 0-5.22 2.336-5.22 5.22s2.338 5.22 5.22 5.22 5.22-2.338 5.22-5.22-2.336-5.22-5.22-5.22zm-13.56 0c-2.882 0-5.22 2.336-5.22 5.22s2.338 5.22 5.22 5.22 5.22-2.338 5.22-5.22-2.336-5.22-5.22-5.22zM12 .907c-2.882 0-5.22 2.336-5.22 5.22s2.338 5.22 5.22 5.22 5.22-2.338 5.22-5.22S14.882.907 12 .907z"/>
+                    </svg>
+                </div>
+
+                <!-- Logo 4 - Dialpad -->
+                <div class="flex items-center justify-center bg-white border-r border-gray-300 w-[96px] h-[96px] min-w-[96px]">
+                    <svg class="w-[40px] h-[40px]" viewBox="0 0 24 24" fill="#6B7FFF">
+                        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 21c-4.962 0-9-4.038-9-9s4.038-9 9-9 9 4.038 9 9-4.038 9-9 9z"/>
+                    </svg>
+                </div>
+
+                <!-- Logo 5 - Google Tasks -->
+                <div class="flex items-center justify-center bg-white border-r border-gray-300 w-[96px] h-[96px] min-w-[96px]">
+                    <svg class="w-[40px] h-[40px]" viewBox="0 0 24 24" fill="#4285F4">
+                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                    </svg>
+                </div>
+
+                <!-- Logo 6 - Google Workspace -->
+                <div class="flex items-center justify-center bg-white border-r border-gray-300 w-[96px] h-[96px] min-w-[96px]">
+                    <svg class="w-[40px] h-[40px]" viewBox="0 0 24 24">
+                        <path fill="#EA4335" d="M6 0h8v8H6z"/>
+                        <path fill="#4285F4" d="M16 0h8v8h-8z"/>
+                        <path fill="#34A853" d="M16 12h8v8h-8z"/>
+                        <path fill="#FBBC04" d="M6 12h8v8H6z"/>
+                    </svg>
+                </div>
+
+                <!-- Logo 7 - Chain Link -->
+                <div class="flex items-center justify-center bg-white border-r border-gray-300 w-[96px] h-[96px] min-w-[96px]">
+                    <svg class="w-[40px] h-[40px]" viewBox="0 0 24 24" fill="#6B7280">
+                        <path d="M10.59 13.41c.41.39.41 1.03 0 1.42-.39.39-1.03.39-1.42 0a5.003 5.003 0 0 1 0-7.07l3.54-3.54a5.003 5.003 0 0 1 7.07 0 5.003 5.003 0 0 1 0 7.07l-1.49 1.49c.01-.82-.12-1.64-.4-2.42l.47-.48a2.982 2.982 0 0 0 0-4.24 2.982 2.982 0 0 0-4.24 0l-3.53 3.53a2.982 2.982 0 0 0 0 4.24zm2.82-4.24c.39-.39 1.03-.39 1.42 0a5.003 5.003 0 0 1 0 7.07l-3.54 3.54a5.003 5.003 0 0 1-7.07 0 5.003 5.003 0 0 1 0-7.07l1.49-1.49c-.01.82.12 1.64.4 2.43l-.47.47a2.982 2.982 0 0 0 0 4.24 2.982 2.982 0 0 0 4.24 0l3.53-3.53a2.982 2.982 0 0 0 0-4.24.973.973 0 0 1 0-1.42z"/>
+                    </svg>
+                </div>
+
+                <!-- Logo 8 - HubSpot -->
+                <div class="flex items-center justify-center bg-white border-r border-gray-300 w-[96px] h-[96px] min-w-[96px]">
+                    <svg class="w-[40px] h-[40px]" viewBox="0 0 24 24" fill="#FF7A59">
+                        <path d="M18.164 7.93V5.084a2.198 2.198 0 0 0-1.09-1.898l-.416-.24a2.198 2.198 0 0 0-2.197 0l-.416.24a2.198 2.198 0 0 0-1.09 1.898V7.93a5.372 5.372 0 0 0-2.986 4.793c0 2.97 2.407 5.377 5.377 5.377s5.377-2.407 5.377-5.377a5.372 5.372 0 0 0-2.559-4.793zm-2.818 8.336a3.166 3.166 0 1 1 0-6.332 3.166 3.166 0 0 1 0 6.332z"/>
+                    </svg>
+                </div>
+
+                <!-- Logo 9 - Outlook -->
+                <div class="flex items-center justify-center bg-white border-r border-gray-300 w-[96px] h-[96px] min-w-[96px]">
+                    <svg class="w-[40px] h-[40px]" viewBox="0 0 24 24" fill="#0078D4">
+                        <path d="M7 9.5C7 8.12 8.12 7 9.5 7S12 8.12 12 9.5 10.88 12 9.5 12 7 10.88 7 9.5zm15-4.5v14h-9V5h9zM2 3v18l8-2V5L2 3zm7.5 10.5c2.48 0 4.5-2.02 4.5-4.5S11.98 4.5 9.5 4.5 5 6.52 5 9.5s2.02 4.5 4.5 4.5z"/>
+                    </svg>
+                </div>
+
+                <!-- Logo 10 - Google Calendar -->
+                <div class="flex items-center justify-center bg-white border-r border-gray-300 w-[96px] h-[96px] min-w-[96px]">
+                    <svg class="w-[40px] h-[40px]" viewBox="0 0 24 24">
+                        <path fill="#4285F4" d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/>
+                        <path fill="#EA4335" d="M7 10h5v5H7z"/>
+                    </svg>
+                </div>
+
+                <!-- Logo 11 - Microsoft Teams -->
+                <div class="flex items-center justify-center bg-white border-r border-gray-300 w-[96px] h-[96px] min-w-[96px]">
+                    <svg class="w-[40px] h-[40px]" viewBox="0 0 24 24" fill="#5059C9">
+                        <path d="M20.625 8.25h-5.625v12h5.625c.621 0 1.125-.504 1.125-1.125v-9.75c0-.621-.504-1.125-1.125-1.125zM13.5 20.25v-12h-12v10.875c0 .621.504 1.125 1.125 1.125h10.875zM23.25 8.25h-1.5v12h1.5c.414 0 .75-.336.75-.75v-10.5c0-.414-.336-.75-.75-.75z"/>
+                    </svg>
+                </div>
+
+                <!-- Logo 12 - Gmail -->
+                <div class="flex items-center justify-center bg-white border-r border-gray-300 w-[96px] h-[96px] min-w-[96px]">
+                    <svg class="w-[40px] h-[40px]" viewBox="0 0 24 24">
+                        <path fill="#EA4335" d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/>
+                        <path fill="#FBBC05" d="M7.364 1.909L0 5.457v13.909l7.364-7.636z"/>
+                        <path fill="#34A853" d="M16.636 1.909L24 5.457v13.909l-7.364-7.636z"/>
+                    </svg>
+                </div>
+
+                <!-- Logo 13 - Slack -->
+                <div class="flex items-center justify-center bg-white border-r border-gray-300 w-[96px] h-[96px] min-w-[96px]">
+                    <svg class="w-[40px] h-[40px]" viewBox="0 0 24 24">
+                        <path fill="#E01E5A" d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52z"/>
+                        <path fill="#36C5F0" d="M6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313z"/>
+                        <path fill="#2EB67D" d="M8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834z"/>
+                        <path fill="#ECB22E" d="M8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312z"/>
+                    </svg>
+                </div>
+
+                <!-- Duplicate set for continuous scroll -->
+                <div class="flex items-center justify-center bg-white border-r border-gray-300 w-[96px] h-[96px] min-w-[96px]">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pipedrive/pipedrive-original.svg" alt="Pipedrive" class="w-[40px] h-[40px]" />
+                </div>
+                <div class="flex items-center justify-center bg-white border-r border-gray-300 w-[96px] h-[96px] min-w-[96px]">
+                    <svg class="w-[40px] h-[40px]" viewBox="0 0 24 24" fill="#00A1E0">
+                        <path d="M10.006 5.413a4.795 4.795 0 0 1 4.788-4.56 4.794 4.794 0 0 1 4.56 3.254 3.843 3.843 0 0 1 2.283-.753 3.878 3.878 0 0 1 3.877 3.877 3.843 3.843 0 0 1-.753 2.283 4.793 4.793 0 0 1 3.253 4.559 4.795 4.795 0 0 1-4.559 4.788 4.795 4.795 0 0 1-3.254-1.207 3.843 3.843 0 0 1-2.283.753 3.878 3.878 0 0 1-3.877-3.877c0-.844.269-1.614.753-2.283a4.793 4.793 0 0 1-3.254-4.559c0-1.279.506-2.461 1.466-3.329z"/>
+                    </svg>
+                </div>
+                <div class="flex items-center justify-center bg-white border-r border-gray-300 w-[96px] h-[96px] min-w-[96px]">
+                    <svg class="w-[40px] h-[40px]" viewBox="0 0 24 24" fill="#F06A6A">
+                        <path d="M18.78 12.653c-2.882 0-5.22 2.336-5.22 5.22s2.338 5.22 5.22 5.22 5.22-2.338 5.22-5.22-2.336-5.22-5.22-5.22zm-13.56 0c-2.882 0-5.22 2.336-5.22 5.22s2.338 5.22 5.22 5.22 5.22-2.338 5.22-5.22-2.336-5.22-5.22-5.22zM12 .907c-2.882 0-5.22 2.336-5.22 5.22s2.338 5.22 5.22 5.22 5.22-2.338 5.22-5.22S14.882.907 12 .907z"/>
+                    </svg>
+                </div>
+                <div class="flex items-center justify-center bg-white border-r border-gray-300 w-[96px] h-[96px] min-w-[96px]">
+                    <svg class="w-[40px] h-[40px]" viewBox="0 0 24 24" fill="#6B7FFF">
+                        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 21c-4.962 0-9-4.038-9-9s4.038-9 9-9 9 4.038 9 9-4.038 9-9 9z"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Button -->
+        <div class="text-center">
+            <a href="#" class="inline-flex items-center gap-2 text-gray-900 font-semibold hover:opacity-80 transition text-[14px] tracking-[0.05em]" style="font-family: 'Geist Mono', monospace;">
+                <span>SEE ALL INTEGRATIONS</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Who Uses Quin Section -->
+<section class="bg-[#f4c542] py-24">
+    <div class="max-w-[1280px] mx-auto px-6">
+        <div class="grid grid-cols-2 gap-8 items-center">
+            <!-- Left Side - Image -->
+            <div class="w-[639px] h-[954px]">
+                <img src="public/images/built-for-people.avif" alt="Business meeting" class="w-full h-full object-cover" />
+            </div>
+
+            <!-- Right Side - Content -->
+            <div class="flex flex-col">
+                <!-- Badge -->
+                <div class="mb-8">
+                    <span class="bg-[#87ceeb] text-gray-900 font-medium px-4 py-2 inline-block text-[12px] tracking-[0.05em]" style="font-family: 'Geist Mono', monospace;">
+                        WHO USES QUIN
+                    </span>
+                </div>
+
+                <!-- Main Heading -->
+                <h2 class="text-gray-900 mb-6 text-[56px] leading-[1.2] font-medium" style="font-family: 'Instrument Sans', sans-serif;">
+                    Built for people who drive the business forward
+                </h2>
+
+                <!-- Description -->
+                <p class="text-gray-900 mb-12 text-[16px] leading-[1.6]" style="font-family: 'Instrument Sans', sans-serif;">
+                    Quin supports the people who keep everything moving, from the first meeting to the final follow-up.
+                </p>
+
+                <!-- Tabs/Sections -->
+                <div class="space-y-8">
+                    <!-- Financial Advisors Tab -->
+                    <div class="border-t border-gray-900 pt-6">
+                        <h5 class="text-gray-900 mb-4 text-[20px] font-medium" style="font-family: 'Instrument Sans', sans-serif;">
+                            Financial advisors
+                        </h5>
+                        <p class="text-gray-900 mb-4 text-[16px] leading-[1.6]" style="font-family: 'Instrument Sans', sans-serif;">
+                            Stay focused on clients while Quin turns conversations into notes, records, and action items—automatically.
+                        </p>
+                        <a href="#" class="inline-flex items-center gap-2 text-gray-900 font-semibold hover:opacity-80 transition text-[14px] tracking-[0.05em]" style="font-family: 'Geist Mono', monospace;">
+                            <span>LEARN MORE</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- Sales Tab -->
+                    <div class="border-t border-gray-900 pt-6">
+                        <h5 class="text-gray-900 text-[20px] font-medium" style="font-family: 'Instrument Sans', sans-serif;">
+                            Sales
+                        </h5>
+                    </div>
+
+                    <!-- Executives Tab -->
+                    <div class="border-t border-gray-900 pt-6">
+                        <h5 class="text-gray-900 text-[20px] font-medium" style="font-family: 'Instrument Sans', sans-serif;">
+                            Executives
+                        </h5>
+                    </div>
+
+                    <!-- Recruiters Tab -->
+                    <div class="border-t border-gray-900 pt-6">
+                        <h5 class="text-gray-900 text-[20px] font-medium" style="font-family: 'Instrument Sans', sans-serif;">
+                            Recruiters
+                        </h5>
+                    </div>
+
+                    <!-- Assistants Tab -->
+                    <div class="border-t border-gray-900 pt-6">
+                        <h5 class="text-gray-900 text-[20px] font-medium" style="font-family: 'Instrument Sans', sans-serif;">
+                            Assistants
+                        </h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Floating Chat Button -->
+    <button class="fixed bottom-8 z-10 right-8 w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center shadow-lg hover:bg-gray-700 transition group">
+        <svg class="w-8 h-8 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+        </svg>
+    </button>
+</body>
+</html>
