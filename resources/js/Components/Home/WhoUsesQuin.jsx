@@ -10,7 +10,7 @@ export default function WhoUsesQuin() {
     return (
         <section className="bg-[#f4c542] py-24">
 
-            <div className="max-w-[1280px] mx-auto px-6 border-x border-gray-300">
+            <div className="max-w-[1280px] mx-auto border-x border-gray-300">
             {/* Bars - Top */}
             <div className="relative overflow-hidden flex pb-8">
                 <div className="max-w-[1280px]">
@@ -26,7 +26,7 @@ export default function WhoUsesQuin() {
                     </div>
 
                     {/* Right Side - Content */}
-                    <div className="flex flex-col">
+                    <div className="flex flex-col pr-4">
                         {/* Badge */}
                         <div className="mb-8">
                             <span className="bg-[#87ceeb] text-gray-900 font-medium px-4 py-2 inline-block text-[12px] tracking-[0.05em]" style={{ fontFamily: "'Geist Mono', monospace" }}>
@@ -35,7 +35,7 @@ export default function WhoUsesQuin() {
                         </div>
 
                         {/* Main Heading */}
-                        <h2 className="text-gray-900 mb-6 text-[56px] leading-[1.2] font-medium" style={{ fontFamily: '"instrument-sans-variable", sans-serif' }}>
+                        <h2 className="text-gray-900 mb-6 text-[56px] leading-[1.2] font-medium" style={{ fontFamily: '"instrument-sans-variable", sans-serif', fontVariationSettings: "'wght' 80" }}>
                             Built for people who drive the business forward
                         </h2>
 

@@ -3,7 +3,7 @@ export default function Hero() {
         <main className="max-w-[1280px] mx-auto px-6 py-[80px] border-x border-gray-300">
             <div className="text-center">
                 {/* Main Heading */}
-                <h1 className="hero-text text-gray-900 mb-8">
+                <h1 className="hero-text text-gray-900 mb-8" style={{ fontVariationSettings: "'wght' 80" }}>
                     Meet your<br />
                     dream assistant
                 </h1>

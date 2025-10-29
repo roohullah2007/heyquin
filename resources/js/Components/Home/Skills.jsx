@@ -27,7 +27,7 @@ export default function Skills() {
                 </div>
 
                 {/* Heading */}
-                <h2 className="text-gray-900 mb-6" style={{ fontFamily: '"instrument-sans-variable", sans-serif', fontSize: "56px", lineHeight: "62px", fontWeight: "500", letterSpacing: "-0.04em" }}>
+                <h2 className="text-gray-900 mb-6" style={{ fontFamily: '"instrument-sans-variable", sans-serif', fontSize: "56px", lineHeight: "62px", fontWeight: "500", letterSpacing: "-0.04em", fontVariationSettings: "'wght' 80" }}>
                     Say goodbye to<br />
                     busywork, forever
                 </h2>
