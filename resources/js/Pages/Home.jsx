@@ -9,6 +9,9 @@ import WhoUsesQuin from '@/Components/Home/WhoUsesQuin';
 import MeetingAssistantSection from '@/Components/Home/MeetingAssistantSection';
 import TestimonialSection from '@/Components/Home/TestimonialSection';
 import TalkToQuinSection from '@/Components/Home/TalkToQuinSection';
+import SecuritySection from '@/Components/Home/SecuritySection';
+import QuinReplacesSection from '@/Components/Home/QuinReplacesSection';
+import PricingSection from '@/Components/Home/PricingSection';
 import FloatingChatButton from '@/Components/Home/FloatingChatButton';
 
 export default function Home() {
@@ -27,6 +30,9 @@ export default function Home() {
                 <MeetingAssistantSection />
                 <TestimonialSection />
                 <TalkToQuinSection />
+                <SecuritySection />
+                <QuinReplacesSection />
+                <PricingSection />
                 <FloatingChatButton />
             </div>
         </>

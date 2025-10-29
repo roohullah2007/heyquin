@@ -9,7 +9,7 @@ export default function TestimonialSection() {
             <div>
               <h2
                 className="text-black text-[56px] leading-[1.1] font-normal mb-8"
-                style={{ fontFamily: '"instrument-sans-variable", sans-serif' }}
+                style={{ fontFamily: '"instrument-sans-variable", sans-serif', fontVariationSettings: "'wght' 80" }}
               >
                 "Quin eliminated the admin work that used to hang over my head. Now I focus on clients, not tasks."
               </h2>

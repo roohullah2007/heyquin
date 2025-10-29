@@ -11,7 +11,7 @@ export default function MeetingAssistantSection() {
                 </div>
 
                 {/* Heading */}
-                <h2 className="text-white text-center text-[56px] leading-[1.1] font-normal mb-6" style={{ fontFamily: '"instrument-sans-variable", sans-serif' }}>
+                <h2 className="text-white text-center text-[56px] leading-[1.1] font-normal mb-6" style={{ fontFamily: '"instrument-sans-variable", sans-serif', fontVariationSettings: "'wght' 80" }}>
                     More than just
                     <br />
                     <span className="inline-block">a meeting assistant</span>
