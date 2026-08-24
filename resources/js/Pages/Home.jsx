@@ -12,6 +12,8 @@ import TalkToQuinSection from '@/Components/Home/TalkToQuinSection';
 import SecuritySection from '@/Components/Home/SecuritySection';
 import QuinReplacesSection from '@/Components/Home/QuinReplacesSection';
 import PricingSection from '@/Components/Home/PricingSection';
+import QuinHandleSection from '@/Components/Home/QuinHandleSection';
+import Footer from '@/Components/Home/Footer';
 import FloatingChatButton from '@/Components/Home/FloatingChatButton';
 
 export default function Home() {
@@ -33,6 +35,8 @@ export default function Home() {
                 <SecuritySection />
                 <QuinReplacesSection />
                 <PricingSection />
+                <QuinHandleSection />
+                <Footer />
                 <FloatingChatButton />
             </div>
         </>
